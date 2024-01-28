@@ -40,7 +40,18 @@ yay -S com.163.music.spark
 
 
 
-### 3、注意事项
+### 3、临时解决方案
+
+**若本项目未及时同步上游更新导致安装时 404 错误，而你又急需安装**，可按照以下步骤操作：
+1. clone 本项目，或单独下载 PKGBUILD 文件
+2. 访问 https://mirrors.sdu.edu.cn/spark-store-repository/store/music/com.163.music.spark/ 手动下载 deb 包
+3. 更改 PKGBUILD 中的 source 字段为本地 deb 包的路径，并删除 md5sum 校验字段 <del>（当然，你也可以自己算一遍下载的 deb 包的 md5sum）</del>
+4. PKGBUILD 的 depends 数组中，如果有来自 aur 的包依赖未满足，请先安装这些包
+6. 在 PKGBUILD 所在目录，执行 `makepkg -si`
+
+
+
+### 4、注意事项
 
 本构建中 wine 暂时**使用默认 wine**，而不是 deepinwine 或 sparkwine。
 
