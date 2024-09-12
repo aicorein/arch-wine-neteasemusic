@@ -3,7 +3,7 @@
 # URL: https://github.com/AiCorein/arch-wine-neteasemusic
 pkgname=com.163.music.spark
 pkgver=3.0.1.202031spark12.1
-pkgrel=1
+pkgrel=2
 pkgdesc="Netease Music Wine Client from Spark Store"
 url="https://music.163.com/"
 arch=('x86_64')
@@ -30,7 +30,7 @@ package() {
     bsdtar -xpvf "${srcdir}/data.tar.xz"
     install -d usr/share
     mv opt/apps/${pkgname}/entries/* usr/share
-    sed -i 's/"deepin-wine8-stable"/"wine"/' opt/apps/${pkgname}/files/run.sh
+    sed -i 's/"spark-wine-wow"/"wine"/' opt/apps/${pkgname}/files/run.sh
     rmdir opt/apps/${pkgname}/entries/
     rm opt/apps/${pkgname}/info
     chown -R root:root .
